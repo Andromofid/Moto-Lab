@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\MotoController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')
@@ -37,8 +40,10 @@ Route::prefix('admin')
             Route::post('/logout', [AuthController::class, 'destroy'])
                 ->name('logout');
 
-            // Route::resource('motos', MotoController::class);
-            // Route::resource('brands', BrandController::class);
-            // Route::resource('categories', CategoryController::class);
+            Route::resource('brands', BrandController::class)->except('show');
+            Route::resource('categories', CategoryController::class)->except('show');
+            Route::resource('motos', MotoController::class)->except('show');
+            Route::delete('/moto-images/{motoImage}', [MotoController::class, 'destroyImage'])
+                ->name('moto-images.destroy');
         });
     });

@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['title' => 'Dashboard admin - Moto Lab'])
+﻿@extends('admin.layouts.app', ['title' => 'Dashboard admin - Moto Lab'])
 
 @section('header')
     <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
@@ -135,3 +135,4 @@
         @endif
     </section>
 @endsection
+

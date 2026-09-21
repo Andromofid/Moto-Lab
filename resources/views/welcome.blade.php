@@ -226,33 +226,25 @@
             id="marques"
             class="border-y border-moto-border bg-moto-text">
 
-            <div class="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8 ">
 
                 <p
                     class="mb-6 text-center text-xs font-bold uppercase tracking-[0.25em] text-gray-500">
                     Nos marques
                 </p>
 
-                <div class="grid grid-cols-2 items-center gap-8 text-center sm:grid-cols-3 lg:grid-cols-5">
+                <div class="grid grid-cols-2 items-center justify-center mx-auto gap-8 text-center sm:grid-cols-3 lg:grid-cols-5">
 
                     @foreach ($brands as $brand)
 
-                    <div class="flex items-center justify-center">
+                    <div class="flex items-center justify-center  ">
 
-                        @if ($brand->logo)
-
-                        <img
-                            src="{{ asset('storage/' . $brand->logo) }}"
-                            alt="{{ $brand->name }}"
-                            class="h-12 max-w-[140px] object-contain">
-
-                        @else
 
                         <span class="font-heading text-xl font-bold text-moto-surface">
                             {{ $brand->name }}
                         </span>
 
-                        @endif
+
 
                     </div>
 

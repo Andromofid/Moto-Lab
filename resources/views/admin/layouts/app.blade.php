@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -22,14 +22,34 @@
         <header class="sticky top-0 z-40 border-b border-moto-border bg-moto-black/95 backdrop-blur">
             <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
-                    <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-primary-600 font-heading text-xl font-extrabold text-white">
-                        M
-                    </span>
-                    <span>
-                        <span class="block font-heading text-xl font-bold text-white">Moto Lab</span>
-                        <span class="block text-xs font-semibold uppercase tracking-[0.22em] text-moto-muted">Admin</span>
-                    </span>
+                    <img src="{{asset('images/logo.png')}}" alt="Moto Lab Logo" class="h-16" srcset="">
                 </a>
+
+                <nav class="hidden items-center gap-2 md:flex">
+                    <a
+                        href="{{ route('admin.dashboard') }}"
+                        class="rounded-lg px-4 py-2 text-sm font-semibold transition {{ request()->routeIs('admin.dashboard') ? 'bg-primary-600 text-white' : 'text-moto-muted hover:bg-moto-surface-light hover:text-white' }}">
+                        Dashboard
+                    </a>
+
+                    <a
+                        href="{{ route('admin.motos.index') }}"
+                        class="rounded-lg px-4 py-2 text-sm font-semibold transition {{ request()->routeIs('admin.motos.*') ? 'bg-primary-600 text-white' : 'text-moto-muted hover:bg-moto-surface-light hover:text-white' }}">
+                        Motos
+                    </a>
+
+                    <a
+                        href="{{ route('admin.brands.index') }}"
+                        class="rounded-lg px-4 py-2 text-sm font-semibold transition {{ request()->routeIs('admin.brands.*') ? 'bg-primary-600 text-white' : 'text-moto-muted hover:bg-moto-surface-light hover:text-white' }}">
+                        Marques
+                    </a>
+
+                    <a
+                        href="{{ route('admin.categories.index') }}"
+                        class="rounded-lg px-4 py-2 text-sm font-semibold transition {{ request()->routeIs('admin.categories.*') ? 'bg-primary-600 text-white' : 'text-moto-muted hover:bg-moto-surface-light hover:text-white' }}">
+                        Catégories
+                    </a>
+                </nav>
 
                 <div class="flex items-center gap-4">
                     <span class="hidden text-sm text-moto-muted sm:inline">
@@ -46,14 +66,40 @@
                     </form>
                 </div>
             </div>
+
+            <nav class="mx-auto flex max-w-7xl gap-2 overflow-x-auto border-t border-moto-border px-4 py-3 sm:px-6 md:hidden lg:px-8">
+                <a
+                    href="{{ route('admin.dashboard') }}"
+                    class="rounded-lg px-4 py-2 text-sm font-semibold transition {{ request()->routeIs('admin.dashboard') ? 'bg-primary-600 text-white' : 'text-moto-muted hover:bg-moto-surface-light hover:text-white' }}">
+                    Dashboard
+                </a>
+
+                <a
+                    href="{{ route('admin.motos.index') }}"
+                    class="rounded-lg px-4 py-2 text-sm font-semibold transition {{ request()->routeIs('admin.motos.*') ? 'bg-primary-600 text-white' : 'text-moto-muted hover:bg-moto-surface-light hover:text-white' }}">
+                    Motos
+                </a>
+
+                <a
+                    href="{{ route('admin.brands.index') }}"
+                    class="rounded-lg px-4 py-2 text-sm font-semibold transition {{ request()->routeIs('admin.brands.*') ? 'bg-primary-600 text-white' : 'text-moto-muted hover:bg-moto-surface-light hover:text-white' }}">
+                    Marques
+                </a>
+
+                <a
+                    href="{{ route('admin.categories.index') }}"
+                    class="rounded-lg px-4 py-2 text-sm font-semibold transition {{ request()->routeIs('admin.categories.*') ? 'bg-primary-600 text-white' : 'text-moto-muted hover:bg-moto-surface-light hover:text-white' }}">
+                    Catégories
+                </a>
+            </nav>
         </header>
 
         @hasSection('header')
-            <section class="border-b border-moto-border bg-moto-surface">
-                <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-                    @yield('header')
-                </div>
-            </section>
+        <section class="border-b border-moto-border bg-moto-surface">
+            <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+                @yield('header')
+            </div>
+        </section>
         @endif
 
         <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
