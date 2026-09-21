@@ -52,21 +52,43 @@
 
             {{-- Background effects --}}
             <div
-                class="absolute right-0 top-0 h-[600px] w-[600px] rounded-full bg-primary-600/10 blur-[140px]"></div>
+                class="pointer-events-none absolute -right-24 -top-24
+               h-[320px] w-[320px] rounded-full
+               bg-primary-600/10 blur-[100px]
+               sm:h-[420px] sm:w-[420px]
+               lg:h-[600px] lg:w-[600px] lg:blur-[140px]">
+            </div>
 
             <div
-                class="absolute left-1/2 top-1/2 h-[400px] w-[400px] rounded-full bg-primary-600/5 blur-[120px]"></div>
+                class="pointer-events-none absolute left-1/2 top-1/2
+               h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2
+               rounded-full bg-primary-600/5 blur-[90px]
+               sm:h-[300px] sm:w-[300px]
+               lg:h-[400px] lg:w-[400px] lg:blur-[120px]">
+            </div>
 
 
             <div
-                class="relative mx-auto grid min-h-[650px] max-w-7xl items-center gap-12 px-4 py-12 sm:px-6 md:grid-cols-2 lg:px-8 lg:py-8">
+                class="relative mx-auto grid max-w-7xl items-center
+               gap-10 px-4 py-12
+               sm:px-6 sm:py-16
+               md:grid-cols-2 md:gap-8
+               lg:min-h-[650px] lg:gap-12 lg:px-8 lg:py-16">
 
                 {{-- Content --}}
-                <div class="relative z-10">
+                <div
+                    class="relative z-10
+                   text-center
+                   md:text-left">
 
+                    {{-- Badge --}}
                     <div
-                        class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-600/30
-                       bg-primary-600/10 px-4 py-2 text-sm font-medium text-primary-400">
+                        class="mb-5 inline-flex items-center gap-2
+                       rounded-full border border-primary-600/30
+                       bg-primary-600/10
+                       px-3 py-2
+                       text-xs font-medium text-primary-400
+                       sm:px-4 sm:text-sm">
 
                         <span class="h-2 w-2 rounded-full bg-primary-600"></span>
 
@@ -75,32 +97,50 @@
                     </div>
 
 
+                    {{-- Title --}}
                     <h1
-                        class="font-heading max-w-2xl text-4xl font-extrabold leading-tight tracking-tight text-white
-                       sm:text-5xl lg:text-6xl">
+                        class="font-heading mx-auto max-w-xl
+                       text-3xl font-extrabold leading-tight tracking-tight text-white
+                       sm:text-4xl
+                       md:mx-0 md:text-4xl
+                       lg:max-w-2xl lg:text-5xl
+                       xl:text-6xl">
                         Découvrez les meilleures
+
                         <span class="text-primary-600">
                             motos
                         </span>
+
                         à Casablanca
                     </h1>
 
 
+                    {{-- Text --}}
                     <p
-                        class="mt-6 max-w-xl text-base leading-7 text-moto-muted sm:text-lg">
+                        class="mx-auto mt-5 max-w-xl
+                       text-sm leading-6 text-moto-muted
+                       sm:text-base sm:leading-7
+                       md:mx-0
+                       lg:mt-6 lg:text-lg">
                         Explorez notre sélection de motos et scooters.
                         Retrouvez des marques reconnues, des modèles modernes
                         et un accompagnement professionnel chez Moto Lab.
                     </p>
 
 
-                    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                    {{-- Buttons --}}
+                    <div
+                        class="mt-7 flex flex-col gap-3
+                       sm:flex-row sm:justify-center
+                       md:justify-start">
 
                         <a
                             href="#motos"
-                            class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600
-                           px-6 py-3.5 text-sm font-semibold text-white transition
-                           hover:bg-primary-700">
+                            class="inline-flex min-h-12 items-center justify-center gap-2
+                           rounded-lg bg-primary-600
+                           px-6 py-3
+                           text-sm font-semibold text-white
+                           transition hover:bg-primary-700">
                             Explorer les motos
 
                             <svg
@@ -119,46 +159,61 @@
 
                         <a
                             href="#contact"
-                            class="inline-flex items-center justify-center rounded-lg border border-moto-border
-                           bg-moto-surface px-6 py-3.5 text-sm font-semibold text-white
-                           transition hover:border-primary-600 hover:bg-moto-surface-light">
+                            class="inline-flex min-h-12 items-center justify-center
+                           rounded-lg border border-moto-border
+                           bg-moto-surface
+                           px-6 py-3
+                           text-sm font-semibold text-white
+                           transition
+                           hover:border-primary-600
+                           hover:bg-moto-surface-light">
                             Nous contacter
                         </a>
 
                     </div>
 
 
-                    {{-- Small trust section --}}
-                    <div class="mt-10 flex flex-wrap gap-8 border-t border-moto-border pt-8">
+                    {{-- Trust --}}
+                    <div
+                        class="mt-8 grid grid-cols-3 gap-4
+                       border-t border-moto-border pt-6
+                       sm:mt-10 sm:gap-6 sm:pt-8
+                       md:max-w-lg">
 
                         <div>
-                            <div class="font-heading text-2xl font-bold text-white">
+                            <div
+                                class="font-heading text-xl font-bold text-white
+                               sm:text-2xl">
                                 3+
                             </div>
 
-                            <div class="mt-1 text-sm text-moto-muted">
+                            <div class="mt-1 text-xs text-moto-muted sm:text-sm">
                                 Marques
                             </div>
                         </div>
 
 
                         <div>
-                            <div class="font-heading text-2xl font-bold text-white">
+                            <div
+                                class="font-heading text-xl font-bold text-white
+                               sm:text-2xl">
                                 50+
                             </div>
 
-                            <div class="mt-1 text-sm text-moto-muted">
+                            <div class="mt-1 text-xs text-moto-muted sm:text-sm">
                                 Modèles
                             </div>
                         </div>
 
 
                         <div>
-                            <div class="font-heading text-2xl font-bold text-white">
+                            <div
+                                class="font-heading text-xl font-bold text-white
+                               sm:text-2xl">
                                 Casa
                             </div>
 
-                            <div class="mt-1 text-sm text-moto-muted">
+                            <div class="mt-1 text-xs text-moto-muted sm:text-sm">
                                 Showroom
                             </div>
                         </div>
@@ -169,36 +224,73 @@
 
 
                 {{-- Hero Moto --}}
-                <div class="relative flex items-center justify-center">
+                <div
+                    class="relative hidden md:block flex min-h-[280px] items-center justify-center
+                   sm:min-h-[360px]
+                   md:min-h-[420px]
+                   lg:min-h-[520px]">
 
                     {{-- Red circle --}}
                     <div
-                        class="absolute h-[330px] w-[330px] rounded-full border border-primary-600/30
-                       bg-primary-600/10 shadow-2xl shadow-primary-600/25
-                       sm:h-[420px] sm:w-[420px]"></div>
+                        class="absolute
+                       h-[220px] w-[220px]
+                       rounded-full
+                       border border-primary-600/30
+                       bg-primary-600/10
+                       shadow-2xl shadow-primary-600/25
+                       sm:h-[300px] sm:w-[300px]
+                       md:h-[340px] md:w-[340px]
+                       lg:h-[420px] lg:w-[420px]">
+                    </div>
 
-                    {{-- Decorative line --}}
+
+                    {{-- Decorative square --}}
                     <div
-                        class="absolute h-[200px] w-[200px] rotate-12 border border-white/5
-                       sm:h-[430px] sm:w-[430px]"></div>
+                        class="absolute
+                       h-[190px] w-[190px]
+                       rotate-12
+                       border border-white/5
+                       sm:h-[270px] sm:w-[270px]
+                       md:h-[320px] md:w-[320px]
+                       lg:h-[430px] lg:w-[430px]">
+                    </div>
 
+
+                    {{-- Moto --}}
                     <img
                         src="{{ asset('images/hero-moto.png') }}"
                         alt="Moto sportive Moto Lab Casablanca"
-                        class="relative z-10 w-[500px] max-w-[600px] object-contain drop-shadow-2xl">
+                        class="relative z-10
+                       w-full max-w-[320px]
+                       object-contain
+                       drop-shadow-2xl
+                       sm:max-w-[420px]
+                       md:max-w-[460px]
+                       lg:max-w-[600px]">
+
 
                     {{-- Badge --}}
                     <div
-                        class="absolute right-0 top-8 z-20 hidden rounded-xl border border-moto-border
-                       bg-moto-surface/90 px-4 py-3 shadow-xl backdrop-blur md:block">
+                        class="absolute right-0 top-6 z-20
+                       hidden rounded-xl
+                       border border-moto-border
+                       bg-moto-surface/90
+                       px-4 py-3
+                       shadow-xl backdrop-blur
+                       lg:block">
+
                         <div class="flex items-center gap-3">
 
                             <div
-                                class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-600/20 text-primary-600">
+                                class="flex h-9 w-9 items-center justify-center
+                               rounded-lg
+                               bg-primary-600/20
+                               text-primary-600">
                                 ✓
                             </div>
 
                             <div>
+
                                 <p class="text-xs text-moto-muted">
                                     Moto Lab
                                 </p>
@@ -206,9 +298,11 @@
                                 <p class="text-sm font-semibold text-white">
                                     Concessionnaire
                                 </p>
+
                             </div>
 
                         </div>
+
                     </div>
 
                 </div>
@@ -226,25 +320,24 @@
             id="marques"
             class="border-y border-moto-border bg-moto-text">
 
-            <div class="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8 ">
+            <div class="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
 
                 <p
                     class="mb-6 text-center text-xs font-bold uppercase tracking-[0.25em] text-gray-500">
                     Nos marques
                 </p>
 
-                <div class="grid grid-cols-2 items-center justify-center mx-auto gap-8 text-center sm:grid-cols-3 lg:grid-cols-5">
+                <div
+                    class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 text-center">
 
                     @foreach ($brands as $brand)
 
-                    <div class="flex items-center justify-center  ">
+                    <div class="flex items-center justify-center">
 
-
-                        <span class="font-heading text-xl font-bold text-moto-surface">
+                        <span
+                            class="font-heading text-xl font-bold text-moto-surface">
                             {{ $brand->name }}
                         </span>
-
-
 
                     </div>
 
@@ -320,14 +413,14 @@
                                 class="absolute h-32 w-32 rounded-full bg-primary-600/15 blur-3xl"></div>
 
                             <img
-                                src="{{ asset($moto['image']) }}"
-                                alt="{{ $moto['name'] }}"
+                                src="{{ asset('/storage/'.$moto->images->first()->image) }}"
+                                alt="{{ $moto->name }}"
                                 class="relative z-10 h-full w-full object-contain p-5 transition duration-500
                                    group-hover:scale-105">
 
                             <span
                                 class="absolute right-3 top-3 rounded-md bg-primary-600
-                                   px-2.5 py-1 text-xs font-semibold text-white">
+                                   px-2.5 py-1 text-xs font-semibold text-white z-20">
                                 Disponible
                             </span>
 
@@ -338,19 +431,19 @@
 
                             <p
                                 class="text-xs font-semibold uppercase tracking-wider text-primary-600">
-                                {{ $moto['category'] }}
+                                {{ $moto->category->name }}
                             </p>
 
                             <h3
                                 class="font-heading mt-2 text-lg font-bold text-white">
-                                {{ $moto['name'] }}
+                                {{ $moto->name}}
                             </h3>
 
 
                             <div class="mt-5 flex items-center justify-between">
 
                                 <span class="font-heading text-lg font-bold text-white">
-                                    {{ $moto['price'] }}
+                                    {{ $moto->price }} DH
                                 </span>
 
                             </div>
@@ -540,9 +633,9 @@
                         class="relative overflow-hidden rounded-2xl border border-moto-border">
 
                         <img
-                            src="{{ asset('images/showroom.jpg') }}"
+                            src="{{ asset('images/Showroom.jpg') }}"
                             alt="Showroom Moto Lab Casablanca"
-                            class="h-[420px] w-full object-cover">
+                            class="h-[500px] w-full positioned object-cover transition duration-500 hover:scale-105">
 
                     </div>
 
