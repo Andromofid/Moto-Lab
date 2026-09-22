@@ -210,23 +210,22 @@
     </div>
 
     <div class="lg:col-span-2">
-        <label for="images" class="block text-sm font-semibold text-white">
-            Images
+        <label for="image" class="block text-sm font-semibold text-white">
+            Image
         </label>
 
         <input
-            id="images"
-            name="images[]"
+            id="image"
+            name="image"
             type="file"
-            multiple
             accept="image/*"
             class="mt-2 block w-full rounded-xl border border-moto-border bg-moto-black px-4 py-3 text-sm text-moto-muted file:mr-4 file:rounded-lg file:border-0 file:bg-primary-600 file:px-4 file:py-2 file:text-sm file:font-bold file:text-white hover:file:bg-primary-700">
 
         <p class="mt-2 text-xs leading-5 text-moto-muted">
-            Vous pouvez ajouter plusieurs images. Taille maximale : 4 Mo par image.
+            Ajoutez une seule image. Taille maximale : 4 Mo.
         </p>
 
-        @error('images.*')
+        @error('image')
             <p class="mt-2 text-sm text-primary-400">{{ $message }}</p>
         @enderror
     </div>

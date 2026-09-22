@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Moto;
-use App\Models\MotoImage;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -20,7 +19,7 @@ class MotoController extends Controller
     {
         return view('admin.motos.index', [
             'motos' => Moto::query()
-                ->with(['brand', 'category', 'images'])
+                ->with(['brand', 'category'])
                 ->latest()
                 ->paginate(10),
         ]);
@@ -35,7 +34,7 @@ class MotoController extends Controller
     {
         $moto = Moto::create($this->validatedData($request));
 
-        $this->storeImages($request, $moto);
+        $this->storeImage($request, $moto);
 
         return redirect()
             ->route('admin.motos.index')
@@ -44,8 +43,6 @@ class MotoController extends Controller
 
     public function edit(Moto $moto): View
     {
-        $moto->load(['images' => fn ($query) => $query->orderBy('position')]);
-
         return view('admin.motos.edit', $this->formData($moto));
     }
 
@@ -53,7 +50,7 @@ class MotoController extends Controller
     {
         $moto->update($this->validatedData($request, $moto));
 
-        $this->storeImages($request, $moto);
+        $this->storeImage($request, $moto);
 
         return redirect()
             ->route('admin.motos.index')
@@ -62,11 +59,7 @@ class MotoController extends Controller
 
     public function destroy(Moto $moto): RedirectResponse
     {
-        $moto->load('images');
-
-        foreach ($moto->images as $image) {
-            $this->deleteImageFile($image);
-        }
+        $this->deleteImageFile($moto->image);
 
         $moto->delete();
 
@@ -75,10 +68,10 @@ class MotoController extends Controller
             ->with('success', 'Moto supprimée avec succès.');
     }
 
-    public function destroyImage(MotoImage $motoImage): RedirectResponse
+    public function destroyImage(Moto $moto): RedirectResponse
     {
-        $this->deleteImageFile($motoImage);
-        $motoImage->delete();
+        $this->deleteImageFile($moto->image);
+        $moto->forceFill(['image' => null])->save();
 
         return back()->with('success', 'Image supprimée avec succès.');
     }
@@ -115,8 +108,7 @@ class MotoController extends Controller
             'description' => ['nullable', 'string'],
             'is_featured' => ['nullable', 'boolean'],
             'status' => ['required', 'string', Rule::in(['published', 'draft', 'sold'])],
-            'images' => ['nullable', 'array'],
-            'images.*' => ['image', 'max:4096'],
+            'image' => ['nullable', 'image', 'max:4096'],
         ]);
 
         $data['slug'] = Str::slug($data['slug'] ?: $data['name']);
@@ -126,33 +118,30 @@ class MotoController extends Controller
             'slug' => ['required', 'string', 'max:255', $uniqueSlugRule],
         ])->validate();
 
-        unset($data['images']);
+        unset($data['image']);
 
         return $data;
     }
 
-    private function storeImages(Request $request, Moto $moto): void
+    private function storeImage(Request $request, Moto $moto): void
     {
-        if (! $request->hasFile('images')) {
+        if (! $request->hasFile('image')) {
             return;
         }
 
-        $nextPosition = (int) $moto->images()->max('position') + 1;
+        $oldImage = $moto->image;
 
-        foreach ($request->file('images') as $image) {
-            $path = $image->store('motos', 'public');
+        $image = $request->file('image');
+        $path = $image->store('motos', 'public');
+        $moto->forceFill(['image' => $path])->save();
 
-            $moto->images()->create([
-                'image' => $path,
-                'position' => $nextPosition++,
-            ]);
-        }
+        $this->deleteImageFile($oldImage);
     }
 
-    private function deleteImageFile(MotoImage $motoImage): void
+    private function deleteImageFile(?string $image): void
     {
-        if (! Str::startsWith($motoImage->image, ['http://', 'https://'])) {
-            Storage::disk('public')->delete($motoImage->image);
+        if ($image && ! Str::startsWith($image, ['http://', 'https://'])) {
+            Storage::disk('public')->delete($image);
         }
     }
 }

@@ -413,7 +413,7 @@
                                 class="absolute h-32 w-32 rounded-full bg-primary-600/15 blur-3xl"></div>
 
                             <img
-                                src="{{ asset('/storage/'.$moto->images?->first()?->image) }}"
+                                src="{{ $moto->image ? Storage::url($moto->image) : asset('images/hero-moto.png') }}"
                                 alt="{{ $moto->name }}"
                                 class="relative z-10 h-full w-full object-contain p-5 transition duration-500
                                    group-hover:scale-105">

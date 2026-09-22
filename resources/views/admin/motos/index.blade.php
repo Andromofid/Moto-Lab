@@ -72,20 +72,12 @@
 
                     <tbody class="divide-y divide-moto-border">
                         @foreach ($motos as $moto)
-                            @php
-                                $cover = $moto->images->sortBy('position')->first();
-                                $coverUrl = $cover
-                                    ? (\Illuminate\Support\Str::startsWith($cover->image, ['http://', 'https://'])
-                                        ? $cover->image
-                                        : \Illuminate\Support\Facades\Storage::url($cover->image))
-                                    : null;
-                            @endphp
 
                             <tr class="transition hover:bg-moto-surface-light">
                                 <td class="min-w-72 px-6 py-4">
                                     <div class="flex items-center gap-4">
-                                        @if ($coverUrl)
-                                            <img src="{{ $coverUrl }}" alt="{{ $moto->name }}" class="h-16 w-20 rounded-xl object-cover">
+                                        @if ($moto->image)
+                                            <img src="{{ Storage::url($moto->image) }}" alt="{{ $moto->name }}" class="h-16 w-20 rounded-xl object-cover">
                                         @else
                                             <div class="flex h-16 w-20 items-center justify-center rounded-xl bg-primary-600/10 font-heading text-lg font-bold text-primary-400">
                                                 M

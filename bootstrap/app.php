@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -16,7 +17,17 @@ return Application::configure(basePath: dirname(__DIR__))
         },
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->redirectGuestsTo(function (Request $request) {
+            return $request->is('admin') || $request->is('admin/*')
+                ? route('admin.login')
+                : url('/admin/login');
+        });
+
+        $middleware->redirectUsersTo(function (Request $request) {
+            return $request->is('admin') || $request->is('admin/*')
+                ? route('admin.dashboard')
+                : url('/admin');
+        });
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

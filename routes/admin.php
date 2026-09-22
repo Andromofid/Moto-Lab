@@ -43,7 +43,7 @@ Route::prefix('admin')
             Route::resource('brands', BrandController::class)->except('show');
             Route::resource('categories', CategoryController::class)->except('show');
             Route::resource('motos', MotoController::class)->except('show');
-            Route::delete('/moto-images/{motoImage}', [MotoController::class, 'destroyImage'])
-                ->name('moto-images.destroy');
+            Route::delete('/motos/{moto}/image', [MotoController::class, 'destroyImage'])
+                ->name('motos.image.destroy');
         });
     });

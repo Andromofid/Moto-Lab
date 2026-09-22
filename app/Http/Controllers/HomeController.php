@@ -14,7 +14,7 @@ class HomeController extends Controller
             ->get();
 
         $motos = Moto::query()
-            ->with(['brand', 'category', 'images'])
+            ->with(['brand', 'category'])
             ->where('status', 'published')
             ->where('is_featured', true)
             ->latest()
