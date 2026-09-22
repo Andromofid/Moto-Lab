@@ -18,7 +18,6 @@ class HomeController extends Controller
             ->where('status', 'published')
             ->where('is_featured', true)
             ->latest()
-            ->take(4)
             ->get();
 
         return view('welcome', compact('brands', 'motos'));
