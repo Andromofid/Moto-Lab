@@ -3,7 +3,7 @@
     <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
         {{-- Logo --}}
-        <a href="/" class="flex items-center gap-3">
+        <a href="{{ route('home') }}" class="flex items-center gap-3">
 
           <img src="{{asset('images/logo.png')}}" alt="Moto Lab Logo" class="h-16" srcset="">
 
@@ -13,31 +13,31 @@
         <nav class="hidden items-center gap-8 text-sm font-medium md:flex">
 
             <a
-                href="#home"
+                href="{{ route('home') }}#home"
                 class="text-white transition hover:text-primary-600">
                 Accueil
             </a>
 
             <a
-                href="#motos"
+                href="{{ route('motos.index') }}"
                 class="text-moto-muted transition hover:text-white">
                 Motos
             </a>
 
             <a
-                href="#marques"
+                href="{{ route('home') }}#marques"
                 class="text-moto-muted transition hover:text-white">
                 Marques
             </a>
 
             <a
-                href="#about"
+                href="{{ route('home') }}#about"
                 class="text-moto-muted transition hover:text-white">
                 À propos
             </a>
 
             <a
-                href="#contact"
+                href="{{ route('home') }}#contact"
                 class="text-moto-muted transition hover:text-white">
                 Contact
             </a>
@@ -47,7 +47,7 @@
         <div class="flex items-center gap-3">
 
             <a
-                href="#motos"
+                href="{{ route('motos.index') }}"
                 class="hidden rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white transition
                    hover:bg-primary-700 md:inline-flex">
                 Voir les motos
@@ -83,23 +83,23 @@
 
         <nav class="flex flex-col gap-1 px-4 py-4">
 
-            <a href="#home" class="rounded-lg px-4 py-3 hover:bg-moto-surface-light">
+            <a href="{{ route('home') }}#home" class="rounded-lg px-4 py-3 hover:bg-moto-surface-light">
                 Accueil
             </a>
 
-            <a href="#motos" class="rounded-lg px-4 py-3 hover:bg-moto-surface-light">
+            <a href="{{ route('motos.index') }}" class="rounded-lg px-4 py-3 hover:bg-moto-surface-light">
                 Motos
             </a>
 
-            <a href="#marques" class="rounded-lg px-4 py-3 hover:bg-moto-surface-light">
+            <a href="{{ route('home') }}#marques" class="rounded-lg px-4 py-3 hover:bg-moto-surface-light">
                 Marques
             </a>
 
-            <a href="#about" class="rounded-lg px-4 py-3 hover:bg-moto-surface-light">
+            <a href="{{ route('home') }}#about" class="rounded-lg px-4 py-3 hover:bg-moto-surface-light">
                 À propos
             </a>
 
-            <a href="#contact" class="rounded-lg px-4 py-3 hover:bg-moto-surface-light">
+            <a href="{{ route('home') }}#contact" class="rounded-lg px-4 py-3 hover:bg-moto-surface-light">
                 Contact
             </a>
 

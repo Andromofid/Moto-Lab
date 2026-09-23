@@ -29,19 +29,19 @@
 
                 <div class="mt-4 flex flex-col gap-3 text-sm text-moto-muted">
 
-                    <a href="#home" class="hover:text-white">
+                    <a href="{{ route('home') }}#home" class="hover:text-white">
                         Accueil
                     </a>
 
-                    <a href="#motos" class="hover:text-white">
+                    <a href="{{ route('motos.index') }}" class="hover:text-white">
                         Motos
                     </a>
 
-                    <a href="#marques" class="hover:text-white">
+                    <a href="{{ route('home') }}#marques" class="hover:text-white">
                         Marques
                     </a>
 
-                    <a href="#about" class="hover:text-white">
+                    <a href="{{ route('home') }}#about" class="hover:text-white">
                         À propos
                     </a>
 

@@ -383,7 +383,7 @@
 
 
                     <a
-                        href="#"
+                        href="{{ route('motos.index') }}"
                         class="inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:text-primary-600">
                         Voir toutes les motos
 
