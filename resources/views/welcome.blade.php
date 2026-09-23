@@ -158,7 +158,7 @@
 
 
                         <a
-                            href="#contact"
+                            href="{{ route('contact.create') }}"
                             class="inline-flex min-h-12 items-center justify-center
                            rounded-lg border border-moto-border
                            bg-moto-surface
@@ -672,7 +672,7 @@
 
 
                     <a
-                        href="#contact"
+                        href="{{ route('contact.create') }}"
                         class="mt-8 inline-flex rounded-lg bg-primary-600
                        px-6 py-3.5 text-sm font-semibold text-white
                        transition hover:bg-primary-700">

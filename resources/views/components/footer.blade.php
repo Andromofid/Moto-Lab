@@ -45,6 +45,10 @@
                         À propos
                     </a>
 
+                    <a href="{{ route('contact.create') }}" class="hover:text-white">
+                        Contact
+                    </a>
+
                 </div>
 
             </div>

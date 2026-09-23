@@ -37,7 +37,7 @@
             </a>
 
             <a
-                href="{{ route('home') }}#contact"
+                href="{{ route('contact.create') }}"
                 class="text-moto-muted transition hover:text-white">
                 Contact
             </a>
@@ -99,7 +99,7 @@
                 À propos
             </a>
 
-            <a href="{{ route('home') }}#contact" class="rounded-lg px-4 py-3 hover:bg-moto-surface-light">
+            <a href="{{ route('contact.create') }}" class="rounded-lg px-4 py-3 hover:bg-moto-surface-light">
                 Contact
             </a>
 

@@ -102,7 +102,7 @@
                                 </p>
 
                                 <a
-                                    href="{{ route('home') }}#contact"
+                                    href="{{ route('contact.create') }}"
                                     class="inline-flex justify-center rounded-xl bg-primary-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-primary-700">
                                     Demander plus d'infos
                                 </a>
@@ -183,7 +183,7 @@
 
                 <div class="mt-6 space-y-3 text-sm">
                     <a
-                        href="{{ route('home') }}#contact"
+                        href="{{ route('contact.create') }}"
                         class="flex w-full justify-center rounded-xl bg-primary-600 px-5 py-3 font-bold text-white transition hover:bg-primary-700">
                         Contacter le showroom
                     </a>
