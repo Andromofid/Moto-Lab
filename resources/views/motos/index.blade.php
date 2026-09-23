@@ -143,10 +143,12 @@
                     <div class="relative flex h-64 items-center justify-center overflow-hidden bg-moto-black">
                         <div class="absolute h-36 w-36 rounded-full bg-primary-600/15 blur-3xl transition group-hover:bg-primary-600/25"></div>
 
-                        <img
-                            src="{{ $moto->image ? Storage::url($moto->image) : asset('images/hero-moto.png') }}"
-                            alt="{{ $moto->name }}"
-                            class="relative z-10 h-full w-full object-contain p-6 transition duration-500 group-hover:scale-105">
+                        <a href="{{ route('motos.show', $moto->slug) }}" class="relative z-10 h-full w-full">
+                            <img
+                                src="{{ $moto->image ? Storage::url($moto->image) : asset('images/hero-moto.png') }}"
+                                alt="{{ $moto->name }}"
+                                class="h-full w-full object-contain p-6 transition duration-500 group-hover:scale-105">
+                        </a>
 
                         @if ($moto->condition)
                         <span class="absolute left-4 top-4 rounded-full border border-white/10 bg-moto-surface/90 px-3 py-1 text-xs font-bold text-white backdrop-blur">
@@ -168,9 +170,11 @@
                             <span>{{ $moto->category?->name ?? 'Catégorie' }}</span>
                         </div>
 
-                        <h3 class="font-heading mt-3 text-xl font-bold text-white">
-                            {{ $moto->name }}
-                        </h3>
+                        <a href="{{ route('motos.show', $moto->slug) }}" class="group/title">
+                            <h3 class="font-heading mt-3 text-xl font-bold text-white transition group-hover/title:text-primary-400">
+                                {{ $moto->name }}
+                            </h3>
+                        </a>
 
                         <div class="mt-5 grid grid-cols-3 gap-3 rounded-2xl border border-moto-border bg-moto-black/50 p-3 text-center">
                             <div>
@@ -200,9 +204,9 @@
                             </div>
 
                             <a
-                                href="#contact"
+                                href="{{ route('motos.show', $moto->slug) }}"
                                 class="rounded-xl border border-moto-border px-4 py-3 text-sm font-semibold text-white transition hover:border-primary-600 hover:bg-primary-600">
-                                Contact
+                                Voir détails
                             </a>
                         </div>
                     </div>
@@ -210,8 +214,8 @@
                 @endforeach
             </div>
 
-            <div class="mt-10 rounded-2xl border border-moto-border bg-moto-surface px-4 py-4">
-                {{ $motos->links() }}
+            <div class="mt-10">
+                {{ $motos->onEachSide(1)->links('pagination.moto-lab') }}
             </div>
             @else
             <div class="mt-8 rounded-3xl border border-moto-border bg-moto-surface px-6 py-16 text-center">

@@ -412,11 +412,13 @@
                             <div
                                 class="absolute h-32 w-32 rounded-full bg-primary-600/15 blur-3xl"></div>
 
-                            <img
-                                src="{{ $moto->image ? Storage::url($moto->image) : asset('images/hero-moto.png') }}"
-                                alt="{{ $moto->name }}"
-                                class="relative z-10 h-full w-full object-contain p-5 transition duration-500
-                                   group-hover:scale-105">
+                            <a href="{{ route('motos.show', $moto->slug) }}" class="relative z-10 h-full w-full">
+                                <img
+                                    src="{{ $moto->image ? Storage::url($moto->image) : asset('images/hero-moto.png') }}"
+                                    alt="{{ $moto->name }}"
+                                    class="h-full w-full object-contain p-5 transition duration-500
+                                       group-hover:scale-105">
+                            </a>
 
                             <span
                                 class="absolute right-3 top-3 rounded-md bg-primary-600
@@ -434,10 +436,12 @@
                                 {{ $moto->category->name }}
                             </p>
 
-                            <h3
-                                class="font-heading mt-2 text-lg font-bold text-white">
-                                {{ $moto->name}}
-                            </h3>
+                            <a href="{{ route('motos.show', $moto->slug) }}">
+                                <h3
+                                    class="font-heading mt-2 text-lg font-bold text-white transition hover:text-primary-400">
+                                    {{ $moto->name}}
+                                </h3>
+                            </a>
 
 
                             <div class="mt-5 flex items-center justify-between">
@@ -450,7 +454,7 @@
 
 
                             <a
-                                href="#"
+                                href="{{ route('motos.show', $moto->slug) }}"
                                 class="mt-5 flex w-full items-center justify-center rounded-lg
                                    border border-moto-border px-4 py-3 text-sm font-semibold
                                    text-white transition hover:border-primary-600
@@ -712,7 +716,7 @@
                     </p>
 
                     <a
-                        href="#motos"
+                        href="{{route('motos.index')}}"
                         class="mt-8 inline-flex rounded-lg bg-moto-black
                        px-7 py-3.5 text-sm font-semibold text-white
                        transition hover:bg-moto-surface">

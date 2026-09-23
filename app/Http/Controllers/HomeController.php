@@ -20,6 +20,7 @@ class HomeController extends Controller
             ->where('status', 'published')
             ->where('is_featured', true)
             ->latest()
+            ->take(4)
             ->get();
 
         return view('welcome', compact('brands', 'motos'));
@@ -77,5 +78,23 @@ class HomeController extends Controller
             ->withQueryString();
 
         return view('motos.index', compact('brands', 'categories', 'conditions', 'motos'));
+    }
+
+    public function showMoto(Moto $moto)
+    {
+        abort_unless($moto->status === 'published', 404);
+
+        $moto->load(['brand', 'category']);
+
+        $relatedMotos = Moto::query()
+            ->with(['brand', 'category'])
+            ->where('status', 'published')
+            ->whereKeyNot($moto->id)
+            ->when($moto->category_id, fn ($query) => $query->where('category_id', $moto->category_id))
+            ->latest()
+            ->take(3)
+            ->get();
+
+        return view('motos.show', compact('moto', 'relatedMotos'));
     }
 }

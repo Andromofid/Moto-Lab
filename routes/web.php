@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/motos', [HomeController::class, 'motos'])->name('motos.index');
+Route::get('/motos/{moto:slug}', [HomeController::class, 'showMoto'])->name('motos.show');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
