@@ -10,7 +10,7 @@
             <div>
 
                 <h3 class="font-heading text-xl font-bold text-white">
-                    Moto Lab
+                    <img src="{{asset('images/logo.png')}}" alt="Logo" sizes="" srcset="">
                 </h3>
 
                 <p class="mt-4 max-w-xs text-sm leading-6 text-moto-muted">
@@ -68,7 +68,9 @@
                     </p>
 
                     <p>
-                        +212 6 XX XX XX XX
+                        +212 6 89 49 75 06
+                        <br>
+                        +212 6 84 60 25 60
                     </p>
 
                     <p>
@@ -94,7 +96,8 @@
                 <div class="mt-5 flex gap-3">
 
                     <a
-                        href="#"
+                        href="https://www.instagram.com/moto_lab_casablanca/"
+                        traget="_blank"
                         class="flex h-10 w-10 items-center justify-center rounded-lg
                            border border-moto-border text-sm text-white
                            transition hover:border-primary-600
@@ -103,7 +106,8 @@
                     </a>
 
                     <a
-                        href="#"
+                        href="https://web.facebook.com/people/Moto-Lab-Casablanca/61584669695694/"
+                        target="_blank"
                         class="flex h-10 w-10 items-center justify-center rounded-lg
                            border border-moto-border text-sm text-white
                            transition hover:border-primary-600
