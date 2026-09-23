@@ -5,7 +5,7 @@
         {{-- Logo --}}
         <a href="{{ route('home') }}" class="flex items-center gap-3">
 
-          <img src="{{asset('images/logo.png')}}" alt="Moto Lab Logo" class="h-16" srcset="">
+            <img src="{{asset('images/logo.png')}}" alt="Moto Lab Logo" class="h-16" srcset="">
 
         </a>
 
@@ -14,31 +14,31 @@
 
             <a
                 href="{{ route('home') }}#home"
-                class="text-white transition hover:text-primary-600">
+                class="{{ request()->routeIs('home') ? 'text-white' : 'text-moto-muted' }} transition hover:text-primary-600">
                 Accueil
             </a>
 
             <a
                 href="{{ route('motos.index') }}"
-                class="text-moto-muted transition hover:text-white">
+                class="{{ request()->routeIs('motos.index') ? 'text-white' : 'text-moto-muted' }} transition hover:text-white">
                 Motos
             </a>
 
             <a
                 href="{{ route('home') }}#marques"
-                class="text-moto-muted transition hover:text-white">
+                class=" text-moto-muted transition hover:text-white">
                 Marques
             </a>
 
             <a
                 href="{{ route('home') }}#about"
-                class="text-moto-muted transition hover:text-white">
+                class=" text-moto-muted transition hover:text-white">
                 À propos
             </a>
 
             <a
                 href="{{ route('contact.create') }}"
-                class="text-moto-muted transition hover:text-white">
+                class="{{ request()->routeIs('contact.create') ? 'text-white' : 'text-moto-muted' }} transition hover:text-white">
                 Contact
             </a>
 
